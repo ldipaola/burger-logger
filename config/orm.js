@@ -60,7 +60,7 @@ function printQuestionMarks(num) {
         const queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
 
     console.log(queryString);
-    connection.query(queryString, [table, col, col, condition] function(err, result) {
+    connection.query(queryString, [table, col, col, condition], function(err, result) {
       if (err) {
         throw err;
       }
