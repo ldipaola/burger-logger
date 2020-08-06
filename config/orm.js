@@ -50,8 +50,15 @@ function printQuestionMarks(num) {
     });
     },
     insertOne: (table, col, val, cb) => {
-        const queryString = "INSERT INTO ?? (?) VALUE(?)";
-        connection.query(queryString, [table, col, val], function(err, result) {
+        let queryString = "INSERT INTO " + table;
+        queryString += " (";
+        queryString += col.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += printQuestionMarks(val.length);
+        queryString += ") ";
+
+        connection.query(queryString, val, function(err, result) {
             if (err) {
               throw err;
             }
