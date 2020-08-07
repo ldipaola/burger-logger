@@ -28,10 +28,9 @@ router.get("/", function(req, res) {
   
   router.put("/api/burgers/:id", function(req, res) {
     const condition = "id = " + req.params.id;
-  
     console.log("condition", condition);
   
-    burger.update({
+    burger.updateOne({
       eaten: req.body.eaten
     }, condition, function(result) {
       if (result.changedRows == 0) {
