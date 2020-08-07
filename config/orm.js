@@ -50,13 +50,7 @@ function printQuestionMarks(num) {
     });
     },
     insertOne: (table, col, val, cb) => {
-        let queryString = "INSERT INTO " + table;
-        queryString += " (";
-        queryString += col.toString();
-        queryString += ") ";
-        queryString += "VALUES (";
-        queryString += printQuestionMarks(val.length);
-        queryString += ") ";
+        const queryString = `INSERT INTO ${table} (${col.toString()}) VALUES (${printQuestionMarks(val.length)})`;
 
         connection.query(queryString, val, function(err, result) {
             if (err) {
@@ -65,11 +59,11 @@ function printQuestionMarks(num) {
             cb(result);
           });
     },
-     updateOne: (table, col, conditionCol, condition, cb) => {
-        const queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+     updateOne: (table, objColVals, condition, cb) => {
+        const queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition}`;
 
     console.log(queryString);
-    connection.query(queryString, [table, col, conditionCol, condition], function(err, result) {
+    connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
