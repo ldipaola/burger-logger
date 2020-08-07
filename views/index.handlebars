@@ -4,7 +4,17 @@
 
 <ul>
   {{#each burgers}}
+  {{#unless eaten }}
   <li>{{ burger }}</li>
+  {{/unless}}
+  {{/each}}
+</ul>
+<br>
+<ul>
+  {{#each burgers}}
+  {{#if eaten }}
+  <li>{{ burger }}</li>
+  {{/if}}
   {{/each}}
 </ul>
 
