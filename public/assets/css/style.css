@@ -1,5 +1,6 @@
 body {
   background-color: #FCE7B0;
+  font-family: 'Kreon', serif;
 }
 li {
   padding: 5px;
@@ -31,6 +32,7 @@ li {
 
 .devoured-burgers {
   grid-column: 3 / -1;
+  color: 	#808080;
 }
 .burger-wrapper {
   grid-column: 2 / 3;
@@ -42,4 +44,39 @@ li {
 .form-wrapper {
   display: flex;
   justify-content: center;
+}
+
+.devoured {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #000000;
+  margin-left: 1em;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto',sans-serif;
+  font-weight: 300;
+  color: #000000;
+  opacity: 0.3; 
+  text-align: center;
+  transition: all 0.2s;
+  
+}
+.devoured:hover {
+  color:#ff0000;
+  background-color: #C37228;
+  opacity: 1; 
+}
+
+.popout {
+  animation: popout 0.5s ease;
+  -webkit-animation: popout 0.5s ease;
+}
+@keyframes popout {
+  from{transform:scale(0)}
+  to{transform:scale(1)}
+}
+@-webkit-keyframes popout {
+  from{-webkit-transform:scale(0)}
+  to{-webkit-transform:scale(1)}
 }
